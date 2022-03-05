@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#
+# 1. parse arguments
+# 2. check arguments are used correctly
+# 3. (loop) Detect evil twin
+# 4. (loop) capture packets and check for handshake
+# 5. either pass to aircrack-ng or output hashcat file
 #  ___     _ _   _____        _      
 # | __|_ _(_) | |_   _|_ __ _(_)_ _  
 # | _|\ V / | |   | | \ V  V / | ' \ 
@@ -97,7 +103,7 @@ while [ $HANDSHAKE_DETECTED = false ]; do
     read -p "Ready to capture half-handshake. Enter capture length in seconds to begin: " CAPTIME
 
     sudo airodump-ng $IFACE -c $CHANNEL -K 1 &> /dev/null & # -K 1 means non-interactive mode
-    tshark -i wlan0 -w raw.pcapng -a duration:$CAPTIME &> /dev/null &
+    tshark -i $IFACE -w raw.pcapng -a duration:$CAPTIME &> /dev/null &
 
     printf "Capturing... %3u" $CAPTIME # %3u means unsigned int and pad to 3 chars wide
     while [[ $CAPTIME -gt 0 ]]; do
