@@ -3,7 +3,7 @@
 # 1. parse arguments
 # 2. check arguments are used correctly
 # 3. (loop) Detect evil twin
-# 4. (loop) capture packets and check for handshake
+# 4. (loop) Capture packets and check for handshake
 # 5. either pass to aircrack-ng or output hashcat file
 #  ___     _ _   _____        _      
 # | __|_ _(_) | |_   _|_ __ _(_)_ _  
