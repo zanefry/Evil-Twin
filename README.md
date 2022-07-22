@@ -1,8 +1,7 @@
-# zcs-eviltwin
-Capstone project demonstrating an attack known as "Evil Twin" which exploits cellphones storing of "trusted" or "preferred" WiFi networks by creating a dummy network with the same SSID as the target and attempting to steal broadcasted passwords.
+Capstone project demonstrating an evil twin attack on WPA2-Personal networks. The attack exploits that many devices silently try to connect to access points with SSIDs they've connected to in the past. The script listens for attempted connections to the malicious AP and grabs the hashes for offline cracking.
 
 depends:
     airmon-ng
     tshark
     hcxtools
-    
+
